@@ -1,0 +1,14 @@
+name: Trufflehog Scan
+
+on: push
+
+jobs:
+  trufflehog_scan:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      
+      - name: Run Trufflehog Scan
+        run: docker run --rm -it -v "$PWD:/pwd" trufflesecurity/trufflehog:latest github --repo https://github.com/marshal98/DevSecOps-Poc
