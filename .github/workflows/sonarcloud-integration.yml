@@ -17,4 +17,4 @@ jobs:
       run:  mvn -B verify sonar:sonar -Dsonar.projectKey=Devsecops_sonacloud_integration -Dsonar.organization=Devsecops_sonacloud_integration -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=$SONAR_TOKEN
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
