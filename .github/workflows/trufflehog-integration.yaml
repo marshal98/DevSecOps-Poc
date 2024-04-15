@@ -12,4 +12,4 @@ jobs:
       
       - name: Run Trufflehog Scan
         run: |
-          docker run --rm -v $(pwd):/repo trailofbits/trufflehog --regex --entropy=False /repo
+          docker run --rm -v $(pwd):/repo trufflesecurity/trufflehog:latest --regex --entropy=False /repo
