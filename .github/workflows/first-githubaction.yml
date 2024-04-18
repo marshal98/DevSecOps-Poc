@@ -1,12 +1,15 @@
-name: run shell commands
+name: Hello World and Run Docker Demo
 on: [push] 
 
-jobs: 
-  run-shell-command:
+jobs:
+  hello_and_docker_demo:
     runs-on: ubuntu-latest
     steps:
-      - name: Echo a string
+      - name: Print Hello World
         run: echo "hello world"
+
+      - name: Run Docker Demo
+        run: docker run --rm hello-world
 
 
 
