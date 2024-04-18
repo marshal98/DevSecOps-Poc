@@ -11,4 +11,4 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Run Trufflehog Scan
-        run: docker run --rm -v "$PWD:/pwd" trufflesecurity/trufflehog:latest github --repo https://github.com/trufflesecurity/test_keys
+        run: docker run --rm -v "$PWD:/pwd" trufflesecurity/trufflehog:latest github --repo https://github.com/marshal98/DevSecOps-Poc
