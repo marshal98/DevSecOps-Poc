@@ -1,5 +1,5 @@
 name: Hello World and Run Docker Demo
-on: [push] 
+on: []
 
 jobs:
   hello_and_docker_demo:

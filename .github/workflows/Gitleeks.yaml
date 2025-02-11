@@ -18,10 +18,11 @@ jobs:
 
       - name: Install Gitleaks
         run: |
-          curl -sSL -o gitleaks.tar.gz https://github.com/zricethezav/gitleaks/releases/latest/download/gitleaks_$(uname -s)_$(uname -m).tar.gz
-          tar -xvzf gitleaks.tar.gz
+          GITLEAKS_VERSION=8.16.1
+          wget -qO gitleaks.tar.gz https://github.com/zricethezav/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz
+          tar -xzf gitleaks.tar.gz
           chmod +x gitleaks
-          mv gitleaks /usr/local/bin/
+          sudo mv gitleaks /usr/local/bin/
 
       - name: Run Gitleaks
         run: |
