@@ -1,0 +1,23 @@
+name: Gitleaks Secret Scan
+
+on:
+  push:
+    branches:
+      - Dev
+      
+jobs:
+  gitleaks_scan:
+    name: Scan for Secrets
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Ensure full history for complete scanning
+
+      - name: Run Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        with:
+          config-path: .gitleaks.toml  # Optional: Use custom config file if present
+          fail: true  # Fails the job if secrets are found

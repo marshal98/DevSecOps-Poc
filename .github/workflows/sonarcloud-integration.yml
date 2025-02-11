@@ -1,6 +1,6 @@
 name: Run SonarQube with Maven
 
-on: none
+on: {}
 
 jobs:
   build:
