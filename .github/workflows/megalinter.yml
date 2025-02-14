@@ -3,7 +3,7 @@ name: MegaLinter
 on:
   push:
     branches:
-      - dev
+      - Dev
 
 jobs:
   lint:
