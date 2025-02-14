@@ -1,0 +1,40 @@
+stages:
+  - install
+  - sonarqube
+
+variables:
+  SONAR_SCANNER_VERSION: 4.8.0.2856
+
+cache:
+  paths:
+    - node_modules/
+
+before_script:
+  - node -v
+  - npm -v
+
+install_dependencies:
+  stage: install
+  image: node:18
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
+
+sonarqube_scan:
+  stage: sonarqube
+  image: gradle:jdk11  # Using JDK as SonarQube needs Java
+  script:
+    - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_VERSION}-linux.zip
+    - unzip sonar-scanner-cli-${SONAR_SCANNER_VERSION}-linux.zip
+    - mv sonar-scanner-${SONAR_SCANNER_VERSION}-linux sonar-scanner
+    - export PATH="$PATH:$CI_PROJECT_DIR/sonar-scanner/bin"
+    - sonar-scanner \
+        -Dsonar.projectKey=my_nodejs_project \
+        -Dsonar.sources=. \
+        -Dsonar.exclusions=node_modules/** \
+        -Dsonar.host.url=$SONAR_HOST_URL \
+        -Dsonar.login=$SONAR_TOKEN
+  only:
+    - dev
