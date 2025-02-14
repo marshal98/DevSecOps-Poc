@@ -3,16 +3,22 @@ name: MegaLinter
 on:
   push:
     branches:
-      - Dev
+      - dev
 
 jobs:
   lint:
-    name: Run MegaLinter
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-
+        
       - name: Run MegaLinter
-        uses: oxsecurity/megalinter@v6
+        uses: oxsecurity/megalinter-action@latest
+        with:
+          OUTPUT_CI: true
+          
+      - name: Upload MegaLinter Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: megalinter-reports
+          path: ./report

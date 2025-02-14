@@ -3,7 +3,7 @@ name: Gitleaks Secret Scan
 on:
   push:
     branches:
-      - Dev
+      -[]
       
 jobs:
   gitleaks_scan:
