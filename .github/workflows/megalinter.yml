@@ -3,17 +3,16 @@ name: MegaLinter
 on:
   push:
     branches:
-      - main
       - dev
-  pull_request:
 
 jobs:
-  mega-linter:
+  lint:
+    name: Run MegaLinter
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+
       - name: Run MegaLinter
-        uses: oxsecurity/megalinter-action@v6
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: oxsecurity/megalinter@v6
