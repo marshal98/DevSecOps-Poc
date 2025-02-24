@@ -1,9 +1,6 @@
 name: Gitleaks Secret Scan
 
-on:
-  push:
-    branches:
-      -[]
+on: []
       
 jobs:
   gitleaks_scan:

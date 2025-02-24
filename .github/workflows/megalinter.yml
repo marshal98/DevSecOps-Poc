@@ -1,9 +1,6 @@
 name: MegaLinter
 
-on:
-  push:
-    branches:
-      - dev
+on: []
 
 jobs:
   lint:

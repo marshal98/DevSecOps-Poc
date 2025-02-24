@@ -1,6 +1,6 @@
 name: Trufflehog Scan
 
-on: {}
+on: []
 
 jobs:
   trufflehog_scan:

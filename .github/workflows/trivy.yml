@@ -1,7 +1,7 @@
 name: Trivy Vulnerable Image Scan
 
 on:
-  workflow_dispatch:  # Manually trigger the scan
+  workflow_dispatch:  # Manually trigger the scans
 
 jobs:
   scan-vulnerable-image:
