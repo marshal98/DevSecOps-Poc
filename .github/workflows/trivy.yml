@@ -3,7 +3,7 @@ name: Trivy Vulnerable Image Scan
 on:
   push:
     branches:
-      - dev  # Runs only when code is pushed to 'dev' branch
+      - dev  # Runs only when code is pushed to 'dev' brancha
 
 jobs:
   scan-vulnerable-image:
